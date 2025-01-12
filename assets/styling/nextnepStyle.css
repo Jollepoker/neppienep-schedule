@@ -1,0 +1,827 @@
+@keyframes slide-out-left {
+    0% { transform: translateX(0); opacity: 1; }
+    100% { transform: translateX(-100%); opacity: 0; }
+}
+@keyframes slide-in-left {
+    0% { transform: translateX(100%); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+}
+@keyframes slide-out-right {
+    0% { transform: translateX(0); opacity: 1; }
+    100% { transform: translateX(100%); opacity: 0; }
+}
+@keyframes slide-in-right {
+    0% { transform: translateX(-100%); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+}
+
+* {
+    font-family: "Nunito", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 1000;
+    font-style: normal;
+}
+
+html {
+    min-height: 100%;
+}
+
+body {
+    background: linear-gradient(0deg, rgba(230,199,174,1) 0%, rgba(242,216,191,1) 100%);
+    margin: 0;
+    overflow-x: hidden;
+}
+
+header {
+    background: url(../images/topbackground.webp);
+    background-position: top left;
+    background-position-x: 5%;
+    background-repeat: repeat-x;
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+header > img {
+    display: block;
+    margin: 0 auto 1em auto;
+}
+
+header > div > p {
+    margin: 0 8px 8px 8px;
+    text-align: center;
+    color: #e1a2ab;
+    display: block;
+    padding: 0.5em 2em;
+    border-radius: 20px;
+    background-color: #fff;
+    border: 3px solid #c0a092;
+}
+
+.nepClock-links {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.nepClock-links > a {
+    display: block;
+    text-decoration: none;
+    height: 50px;
+    width: 50px;
+    margin-top: 0.5em;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.twitch {
+    background-image: url(../images/icons/twitch.webp);
+}
+
+.youtube {
+    background-image: url(../images/icons/youtube.webp);
+}
+
+.twitter {
+    background-image: url(../images/icons/twitter.webp);
+}
+
+.discord {
+    background-image: url(../images/icons/discord.webp);
+}
+
+.twitch:hover, .youtube:hover, .twitter:hover, .discord:hover {
+    filter: brightness(1.1);
+}
+
+.halloween:nth-child(n) {
+    color: #e8874e;
+}
+
+.halloween:nth-child(2n) {
+    color: #a4636c;
+}
+
+.mikanColour {
+    color: #de9056;
+}
+
+.maikaColour {
+    color: #81c9cf;
+}
+
+.kikiColour {
+    color: #678b63;
+}
+
+.chaiColour {
+    color: #cf3946;
+}
+
+.irinaColour {
+    color: #f3a6aa;
+}
+
+.twitchColour {
+    color: #a087c6;
+}
+
+.nepClock-reverseEmote {
+    transform: scaleX(-1);
+}
+
+#nepClock-scheduleDate {
+    width: 100%;
+    text-align: center;
+    user-select: none;
+}
+
+.nepClock-streamMonth {
+    display: inline-block;
+    font-size: 34px;
+    color: #8b8549;
+    rotate: -5deg;
+    vertical-align: baseline;
+}
+
+.nepClock-streamDay {
+    display: inline-block;
+    font-size: 34px;
+    color: #605c36;
+    rotate: 5deg;
+    vertical-align: middle;
+}
+
+.nepClock-dateSeparator {
+    display: inline-block;
+    background-color: #cac07c;
+    width: 60px;
+    height: 15px;
+    border-radius: 30%;
+    margin: 0 16px;
+}
+
+#nepClockApp {
+    padding: 8px;
+}
+
+#nepClock-schedule {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1em;
+    width: 100%;
+}
+
+.nepClock-weekDayWrapper {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.nepClock-weekDay {
+    background-color: #fff;
+    border: 3px solid #c0a092;
+    border-radius: 40%;
+    width: 6em;
+    height: 4em;
+    margin: 0.5em auto;
+    user-select: none;
+}
+
+.nepClock-today > .nepClock-weekDay {
+    border: 5px solid #f5eda0;
+    box-shadow: #f5eda0 0 0 15px 8px;
+}
+
+.nepClock-today > .nepClock-weekDaySchedule > .nepClock-scheduleContent {
+    border: 3px solid #f5eda0;
+    box-shadow: #f5eda0 0 0 15px 8px;
+}
+
+.nepClock-weekDay > h3 {
+    margin: calc(0.5em - 2px);
+    padding-top: 0.5em;
+    text-align: center;
+    color: #e1a3ac;
+    border: 2px solid #b16a75;
+    border-radius: 40%;
+    height: 2em;
+    background-color: #fff;
+    letter-spacing: 5px;
+    filter: drop-shadow(5px 6px 0px #e1a3ac);
+}
+
+.nepClock-weekDayWrapper:nth-child(3n+1) .nepClock-weekDay > h3 {
+    color: #e1b58c;
+    border-color: #c08666;
+    filter: drop-shadow(5px 6px 0px #e1b58c);
+}
+
+.nepClock-weekDayWrapper:nth-child(3n+2) .nepClock-weekDay > h3 {
+    color: #b1a278;
+    border-color: #7b7049;
+    filter: drop-shadow(5px 6px 0px #b1a278);
+}
+
+.nepClock-weekDayWrapper.nepClock-today > .nepClock-weekDay > h3 {
+    border: none;
+    filter: none;
+}
+
+.nepClock-weekDaySchedule {
+    width: 100%;
+}
+
+.nepClock-weekDaySchedule:has(> .nepClock-scheduleContent > .nepClock-streamWrapper > .nepClock-live)::before {
+    content: "LIVE";
+    display: block;
+    position: relative;
+    width: fit-content;
+    height: fit-content;
+    font-size: 1.3em;
+    margin: 0 auto;
+    margin-bottom: -1em;
+    padding: 0.2em 0.5em;
+    background-color: red;
+    border: 2px solid black;
+    color: #fff;
+    border-radius: 13px;
+    user-select: none;
+    z-index: 3;
+}
+
+.nepClock-discordStream::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: -45px;
+    left: -34px;
+    background-image: url(../images/icons/discord.webp);
+    background-position: top left;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 63px;
+    width: 78px;
+    rotate: -20deg;
+}
+
+.nepClock-discordStream::after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: -45px;
+    right: -34px;
+    background-image: url(../images/icons/discord.webp);
+    background-position: top left;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 63px;
+    width: 78px;
+    rotate: 160deg;
+}
+
+.nepClock-glitter::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: -45px;
+    left: -32px;
+    background-image: url(../images/glitter.webp);
+    background-position: top left;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 82px;
+    width: 64px;
+}
+
+.nepClock-glitter::after {
+    content: "";
+    display: block;
+    position: absolute;
+    bottom: -45px;
+    right: -32px;
+    background-image: url(../images/glitter.webp);
+    background-position: top left;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 82px;
+    width: 64px;
+    rotate: 180deg;
+}
+
+.nepClock-scheduleContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #fff;
+    border-radius: 40px;
+    border: 3px solid #c0a092;
+    padding: 0.5em 1em;
+    width: calc(100% - 6px - 2em);
+    color: #e1a2ab;
+}
+
+.nepClock-scheduleContent:empty:before {
+    content: "";
+    text-align: center;
+    border-bottom: 3px solid #e1a2ab;
+    margin-top: 1.2em;
+    height: calc(47px - 1.2em);
+}
+
+.nepClock-scheduleContent:empty:after {
+    content: "mimimimi";
+    font-size: 1.3em;
+    font-style: italic;
+    text-align: center;
+    letter-spacing: 2px;
+    margin: -0.7em auto 0.5em auto;
+    background-color: #fff;
+    width: fit-content;
+    box-shadow: -15px 0px 15px 10px rgba(255, 255, 255, 0.9), 15px 0 15px 10px rgba(255, 255, 255, 0.9);
+    height: 50px;
+}
+
+.nepClock-canceledStream > .nepClock-stream, .nepClock-canceledStream > .nepClock-streamTime {
+    opacity: 0.5;
+    filter: grayscale(1);
+}
+
+.nepClock-canceledStream:before {
+    content: "";
+    text-align: center;
+    border-bottom: 3px solid #c0a092;
+    margin-top: 1.2em;
+    height: calc(47px - 1.2em);
+    width: 100%;
+    position: absolute;
+    z-index: 3;
+}
+
+.nepClock-canceledStream:after {
+    content: "canceled";
+    font-size: 1.3em;
+    font-style: italic;
+    text-align: center;
+    letter-spacing: 2px;
+    margin: 0 auto;
+    background-color: #fff;
+    width: fit-content;
+    box-shadow: -15px 0px 15px 10px rgba(255, 255, 255, 0.9), 15px 0 15px 10px rgba(255, 255, 255, 0.9);
+    height: 50px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 1.5em;
+    z-index: 3;
+    color: #c0a092;
+}
+
+.nepClock-streamWrapper {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-bottom: 1em;
+    padding-bottom: 1em;
+    border-bottom: 3px solid #c0a092;
+    justify-content: space-between;
+}
+
+.nepClock-streamWrapper:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border: none;
+}
+
+.nepClock-stream {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    column-gap: 0.5em;
+    position: relative;
+    height: 100px;
+    width: 100%;
+    z-index: 2;
+    margin-right: 1em;
+}
+
+.nepClock-streamTime {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    text-align: center;
+    color: #b18073;
+    z-index: 2;
+}
+
+.nepClock-streamTitle, .nepClock-streamTitle span {
+    align-self: center;
+    text-align: center;
+    font-size: 1.4em;
+}
+
+.nepClock-streamTitleImage {
+    min-width: 30%;
+    max-width: 75%;
+    max-height: 14vh;
+    filter: drop-shadow(0px 1px 0px #333);
+    object-fit: contain;
+    align-self: center;
+}
+
+.nepClock-streamTitleImageText {
+    align-self: center;
+}
+
+.nepClock-streamTitleImageText-image {
+    max-width: 140px;
+    max-height: 40px;
+    filter: drop-shadow(1px 1px 0px #333);
+    object-fit: contain;
+    align-self: center;
+}
+
+.nepClock-streamTitleImageText-text {
+    margin: 0;
+    text-align: center;
+}
+
+.nepClock-emote-right, .nepClock-emote-left {
+    height: 75px;
+    width: 75px;
+    align-self: center;
+}
+
+.nepClock-emote-right.nepClock-wideEmote, .nepClock-emote-left.nepClock-wideEmote {
+    width: 150px;
+}
+
+.nepClock-emote-right.nepClock-bigEmote, .nepClock-emote-left.nepClock-bigEmote {
+    scale: 130%;
+}
+
+.nepClock-emote-right {
+    rotate: 10deg;
+}
+
+.nepClock-emote-left {
+    rotate: -10deg;
+}
+
+.nepClock-streamComment {
+    align-self: center;
+    text-align: center;
+    rotate: -5deg;
+    font-size: 1.3em;
+}
+
+.nepClock-streamTime > a {
+    display: inline-block;
+    color: #b18073;
+    text-decoration: none;
+}
+
+.nepClock-streamTime > a:hover {
+    color: #c0a092;
+}
+
+.nepClock-streamTime > div {
+    font-size: 1em;
+}
+
+.nepClock-analogTime {
+    white-space: nowrap;
+}
+
+.nepClock-countdown {
+    display: inline-block;
+    padding-right: 0.3em;
+}
+
+.nepClock-streamTime > div, .nepClock-realTime > div, .nepClock-streamTime > a {
+    font-size: 1em;
+}
+
+.nepClock-realTime {
+    display: inline-block;
+    padding-right: 0.3em;
+}
+
+#nepClock-featuredArt {
+    overflow: hidden;
+    margin-top: 1em;
+    padding: 0 5%;
+}
+
+#nepClock-featuredArt .image-wrapper > a > img {
+    display: block;
+    height: auto;
+    max-height: 600px;
+    max-width: calc(100% - 6px);
+    border-radius: 15px;
+    border: 3px solid #c0a092;
+    margin: 0 auto 0.5em auto;
+}
+
+.slide-in-left {
+    animation: slide-in-left 1s;
+}
+
+.slide-out-left {
+    animation: slide-out-left 0.5s;
+}
+
+.slide-in-right {
+    animation: slide-in-right 1s;
+}
+
+.slide-out-right {
+    animation: slide-out-right 0.5s;
+}
+
+#nepClock-featuredArt > .arrow-left, .arrow-right {
+	display: block;
+    position: absolute;
+    background-size: 50%;
+    background-position: center;
+    background-repeat: no-repeat;
+	z-index: 1;
+    width: 120px;
+    height: 120px;
+    top: calc(50% - 15px);
+    background-color: rgba(0, 0, 0, 0);
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+}
+
+#nepClock-featuredArt > .arrow-left {
+    background-image: url(../images/arrowleft.webp);
+}
+
+#nepClock-featuredArt > .arrow-right {
+    background-image: url(../images/arrowright.webp);
+}
+
+.credit {
+    margin: 0 auto;
+    width: fit-content;
+    text-align: center;
+    color: #fff;
+    display: block;
+    padding: 0.5em 2em;
+    border-radius: 20px;
+    background-color: #dd9fa8;
+    text-decoration: none;
+}
+
+.credit:hover {
+    color: #dd9fa8;
+    background-color: #fff;
+}
+
+@media screen and (max-width: 879px) {
+    #nepClock-featuredArt {
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        gap: 1em;
+    }
+
+    #nepClock-featuredArt > .image-wrapper > a {
+        display: block;
+        width: fit-content;
+        margin: 0 auto;
+    }
+
+    #nepClock-featuredArt > .arrow-left {
+        left: 60px;
+    }
+
+    #nepClock-featuredArt > .arrow-right {
+        left: calc(100% - 60px);
+    }
+}
+
+
+@media screen and (min-width: 880px) {
+    header {
+        margin-left: 40%;
+    }
+
+    header > div > p {
+        width: fit-content;
+        margin: 0 auto;
+    }
+
+    #nepClockApp {
+        display: flex;
+        flex-direction: row-reverse;
+        margin: 0;
+    }
+
+    #nepClock-schedule {
+        flex-basis: 59%;
+    }
+
+    #nepClock-featuredArt {
+        margin-top: 0;
+        padding: 0;
+    }
+	
+    .image-wrapper {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 40%;
+        height: 100%;
+        overflow: hidden;
+    }
+    
+    #nepClock-featuredArt .image-wrapper > a > img {
+        display: block;
+        min-height: 100%;
+        max-width: 100%;
+        width: 100%;
+        object-fit: cover;
+        border-radius: 0;
+        border: none;
+        margin: 0;
+    }
+
+    #nepClock-featuredArt .image-wrapper {
+        border-right: 3px solid #a17b6f;
+        background-color: #fff;
+    }
+
+    .credit {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        box-shadow: #fff 0 0 15px 15px;
+        border-radius: 0;
+        border-top-right-radius: 10px;
+        padding: 0.5em 3em;
+        letter-spacing: 3px;
+        max-width: 25%;
+    }
+
+    #nepClock-featuredArt > .arrow-left {
+        position: fixed;
+        left: 3%;
+    }
+
+    #nepClock-featuredArt > .arrow-right {
+        position: fixed;
+        left: 36%;
+    }
+
+    .nepClock-streamTime {
+        text-align: right;
+        white-space: nowrap;
+    }
+    
+    .nepClock-streamTitleImageText-image {
+        max-width: 100%;
+        max-height: 80px;
+    }
+
+    .nepClock-streamComment, .nepClock-streamComment span {
+        font-size: calc(100% + 0.9vh);
+    }
+    
+    .nepClock-streamTitle, .nepClock-streamTitle span {
+        font-size: calc(100% + 1vh);
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    * {
+        font-size: calc(0.5vw + 0.4vh);
+    }
+
+    header {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    header > img {
+        width: 320px;
+        margin: 0;
+        object-fit: contain;
+    }
+
+    header > div {
+        margin-right: 8px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    header > div > .nepClock-links {
+        justify-content: space-between;
+    }
+
+    #nepClock-schedule {
+        max-width: 60%;
+    }
+	
+    .nepClock-weekDayWrapper {
+        flex-direction: row;
+        align-items: center;
+        column-gap: 10px;
+    }
+
+    .nepClock-weekDay {
+        height: unset;
+    }
+
+    .nepClock-scheduleContent {
+        flex-direction: row;
+        column-gap: 1em;
+    }
+
+    .nepClock-streamComment, .nepClock-streamComment span {
+        letter-spacing: 6px;
+    }
+
+    .nepClock-scheduleContent:empty {
+        flex-direction: column;
+    }
+
+    .nepClock-scheduleContent:empty:before {
+        height: calc(4vh - 1.2em);
+    }
+
+    .nepClock-scheduleContent:empty:after {
+        height: 4vh;
+        font-size: calc(0.8vw + 0.8vh);
+        top: 1.2em;
+    }
+
+    .nepClock-canceledStream:first-child:before {
+        width: calc(100% - 1em);
+    }
+    
+    .nepClock-canceledStream:before {
+        height: calc(4vh - 1.2em);
+    }
+    
+    .nepClock-canceledStream:after {
+        height: 4vh;
+        font-size: calc(0.8vw + 0.8vh);
+        top: 1.2em;
+    }
+
+    .nepClock-streamWrapper {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        border-right: 3px solid #c0a092;
+        height: 7.9vh;
+    }
+
+    .nepClock-streamWrapper:not(:last-child) {
+        padding-right: 1em;
+    }
+
+    .nepClock-stream {
+        flex-direction: row;
+        justify-content: space-around;
+        font-size: 1.2em;
+        align-items: center;
+        padding-right: 1em;
+        text-align: center;
+        height: 7.9vh;
+    }
+
+    .nepClock-streamTitleImage {
+        min-height: 11vh;
+    }
+
+    .nepClock-stream:has(> *:first-child:nth-last-child(2)),
+    .nepClock-scheduleContent:has(> div:first-child:last-child) > .nepClock-stream:has(> *:first-child:nth-last-child(3))
+    {
+        justify-content: space-evenly;
+    }
+
+    .nepClock-stream:has(> *:first-child:nth-last-child(5)) .nepClock-streamTitleImage {
+        max-width: 30%;
+    }
+
+    .nepClock-emote-right, .nepClock-emote-left {
+        height: 8vh;
+        width: 8vh;
+    }
+
+    .nepClock-emote-right.nepClock-wideEmote, .nepClock-emote-left.nepClock-wideEmote {
+        width: 16vh;
+    }
+
+    .nepClock-streamMonth, .nepClock-streamDay {
+        font-size: calc(1vw + 1vh);
+    }
+}
