@@ -3339,6 +3339,117 @@ const schedule = [
             },
         ]
     },
+    {
+        time: "2025-01-13T18:00:00.000+00:00",
+        layout: [
+            {
+                type: 'comment',
+                text: 'Oracle of Ages!',
+            },
+            {
+                type: 'titleLogo',
+                image: 'zeldaoracleofages.webp',
+            },
+            {
+                type: 'rEmote',
+                image: 'nepuConfused.webp',
+            },
+        ]
+    },
+    {
+        time: "2025-01-14T17:00:00.000+00:00",
+        layout: [
+            {
+                type: 'lEmote',
+                image: 'nepuScared.webp',
+            },
+            {
+                type: 'titleLogo',
+                image: 'ysorigin.webp',
+            },
+            {
+                type: 'comment',
+                text: 'Ys Origin (final?)',
+            },
+        ]
+    },
+    {
+        time: "2025-01-15T17:00:00.000+00:00",
+        layout: [
+            {
+                type: 'titleLogo',
+                image: 'mariosunshine.webp',
+            },
+            {
+                type: 'rEmote',
+                image: 'nepuBlanky.webp',
+            },
+            {
+                type: 'comment',
+                text: 'Super Mario Sunshine!',
+            },
+        ]
+    },
+    {
+        time: "2025-01-16T17:00:00.000+00:00",
+        layout: [
+            {
+                type: 'comment',
+                text: 'Warhammer 40K: Dawn of War',
+            },
+            {
+                type: 'comment',
+                text: '(if my pc lets me)',
+            },
+            {
+                type: 'rEmote',
+                image: 'nepuSalute.webp',
+            },
+            {
+                type: 'titleLogo',
+                image: 'dawnofwar.webp',
+            },
+        ]
+    },
+    {
+        time: "2025-01-17T16:00:00.000+00:00",
+        layout: [
+            {
+                type: 'titleLogo',
+                image: 'zeldaoracleofages.webp',
+            },
+            {
+                type: 'lEmote',
+                image: 'nepuPeek.webp',
+            },
+        ]
+    },
+    {
+        time: "2025-01-17T22:00:00.000+00:00",
+        layout: [
+            {
+                type: 'title',
+                text: 'godzilla watchalong*',
+            },
+        ]
+    },
+    {
+        time: "2025-01-19T17:00:00.000+00:00",
+        layout: [
+            {
+                type: 'lEmote',
+                image: 'nepuMurder.webp',
+            },
+            {
+                type: 'titleLogo',
+                image: 'postal2.webp',
+            },
+            {
+                type: 'comment',
+                text: 'a taste of America!',
+            },
+        ]
+    },
 ].sort((streamA, streamB) => {
     if (streamA[0] === streamB[0]) {
         return 0;
