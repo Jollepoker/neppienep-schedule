@@ -619,7 +619,7 @@ class NepSweeper {
             const nepSweeperStyle  = document.createElement('link');
             nepSweeperStyle.id   = 'nepSweeperStyle';
             nepSweeperStyle.rel  = 'stylesheet';
-            nepSweeperStyle.href = './assets/styling/nepSweeperStyle.css?v=2.64';
+            nepSweeperStyle.href = './assets/styling/nepSweeperStyle.css?v=2.65';
             document.head.appendChild(nepSweeperStyle);
         }
 
@@ -956,8 +956,8 @@ class NepSweeper {
             return 0;
         })
 
-        if (difficultyData.length > 10) {
-            difficultyData.slice(-1);
+        while (difficultyData.length > 10) {
+            difficultyData = difficultyData.slice(0,10);
         }
 
         let expireDate = new Date();
